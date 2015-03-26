@@ -86,7 +86,7 @@ public class FormatTest
                 new Object[]{
                         "issue ##212: format with view program",
                         new FormatData(this, "hello \" test")
-                                .notSupported(Version.V6R2014x)
+                                .notSupported(Version.V6R2014x, Version.V6R2015x)
                                 .setViewProgram(new MQLProgramData(this, "ViewProgram"))},
                 new Object[]{
                         "issue ##212: format with view program",
@@ -98,7 +98,7 @@ public class FormatTest
                 new Object[]{
                         "issue ##212: format with edit program",
                         new FormatData(this, "hello \" test")
-                                .notSupported(Version.V6R2014x)
+                                .notSupported(Version.V6R2014x, Version.V6R2015x)
                                 .setEditProgram(new MQLProgramData(this, "EditProgram"))},
                 new Object[]{
                         "issue ##212: format with edit program",
@@ -110,7 +110,7 @@ public class FormatTest
                 new Object[]{
                         "issue ##212: format with print program",
                         new FormatData(this, "hello \" test")
-                                .notSupported(Version.V6R2014x)
+                                .notSupported(Version.V6R2014x, Version.V6R2015x)
                                 .setPrintProgram(new MQLProgramData(this, "PrintProgram"))},
                 new Object[]{
                         "issue ##212: format with print program",
