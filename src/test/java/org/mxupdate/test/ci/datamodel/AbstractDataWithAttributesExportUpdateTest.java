@@ -123,7 +123,7 @@ public abstract class AbstractDataWithAttributesExportUpdateTest<DATAWITHATTRIBU
         _data.create()
              .appendIgnoredAttributes()
              .appendRemoveAttributes()
-             .update();
+             .update((String) null);
         _expData
              .checkExport();
     }

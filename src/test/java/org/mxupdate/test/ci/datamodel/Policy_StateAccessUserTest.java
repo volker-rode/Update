@@ -67,7 +67,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName() + " ").contains("\n    owner read,show\n  nothidden")
@@ -106,7 +106,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName() + " ").contains("\n    owner read,show\n  nothidden")
@@ -135,7 +135,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName() + " ").contains("\n    owner read,show filter type==Part")
@@ -174,7 +174,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName() + " ").contains("\n    owner read,show filter type==Part")
@@ -205,7 +205,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
          Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    owner read,show\n  nothidden")
@@ -245,7 +245,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
          Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    owner read,show\n  nothidden")
@@ -275,7 +275,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke owner read,show\n  nothidden")
@@ -315,7 +315,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke owner read,show\n  nothidden")
@@ -345,7 +345,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke owner read,show filter type==Part")
@@ -385,7 +385,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke owner read,show filter type==Part")
@@ -416,7 +416,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
          Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke owner read,show\n  nothidden")
@@ -456,7 +456,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
          Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke owner read,show\n    public"),
@@ -484,7 +484,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    public read,show\n    owner")
@@ -524,7 +524,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    public read,show\n    owner")
@@ -554,7 +554,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    public read,show filter type==Part")
@@ -594,7 +594,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         final String polPrint = this.mql("print pol " + policy.getName() + " !history");
         Assert.assertTrue(
@@ -624,7 +624,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
          Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    public read,show\n    owner")
@@ -664,7 +664,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
          Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    public read,show\n    owner")
@@ -694,7 +694,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke public read,show\n    public")
@@ -734,7 +734,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke public read,show\n    public")
@@ -764,7 +764,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke public read,show filter type==Part")
@@ -804,7 +804,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
         Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke public read,show filter type==Part")
@@ -835,7 +835,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
          Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke public read,show\n    public")
@@ -875,7 +875,7 @@ public class Policy_StateAccessUserTest
             + "  }\n"
             + "}";
 
-        policy.updateWithCode(updateCode);
+        policy.updateWithCode(updateCode, (String) null);
 
          Assert.assertTrue(
                 this.mql("print pol " + policy.getName()).contains("\n    revoke public read,show\n    public")

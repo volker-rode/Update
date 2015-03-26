@@ -106,7 +106,7 @@ public class AttributeIntegerTest
         new AttributeIntegerData(this, "test")
                 .setFlag("rangevalue", true)
                 .create()
-                .update()
+                .update((String) null)
                 .checkExport()
                 .setFlag("rangevalue", false)
                 .failureUpdate(UpdateException_mxJPO.Error.ABSTRACTATTRIBUTE_UPDATE_RANGEVALUEFLAG_UPDATED);
@@ -130,7 +130,7 @@ public class AttributeIntegerTest
                                 .setValueWOQuots("multiplier", "1.0")
                                 .setValueWOQuots("offset", "0.0")))
                 .create()
-                .update()
+                .update((String) null)
                 .checkExport()
                 .setDimension((DimensionData) null)
                 .failureUpdate(UpdateException_mxJPO.Error.ABSTRACTATTRIBUTE_UPDATE_DIMENSION_UPDATED);

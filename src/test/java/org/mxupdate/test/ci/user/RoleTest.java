@@ -133,7 +133,7 @@ public class RoleTest
                 .setSite(new SiteData(this, "Test \" Site"));
         role.create();
         role.setSite(null);
-        role.update();
+        role.update((String) null);
 
         Assert.assertEquals(this.mql("escape print role \"" + AbstractTest.convertMql(role.getName()) + "\" select site dump"),
                             "",
@@ -152,7 +152,7 @@ public class RoleTest
         final RoleData role = new RoleData(this, "hallo \" test").setFlag("hidden", true);
         role.create()
             .setFlag("hidden", null)
-            .update();
+            .update((String) null);
         Assert.assertEquals(this.mql("escape print role \"" + AbstractTest.convertMql(role.getName()) + "\" select hidden dump"),
                             "FALSE",
                             "check that role is not hidden");
@@ -179,7 +179,7 @@ public class RoleTest
         parent.checkExport(exportParser);
 
         // second update with delivered content
-        parent.updateWithCode(exportParser.getOrigCode())
+        parent.updateWithCode(exportParser.getOrigCode(), (String) null)
               .checkExport();
     }
 }

@@ -855,7 +855,7 @@ public abstract class AbstractUserTest<USER extends AbstractUserData<USER>>
         final CueData<USER> cue = user.newCue("cue not removed test");
         user.create();
         user.getCues().clear();
-        user.update(_paramName, "*");
+        user.update((String) null, _paramName, "*");
         Assert.assertEquals(this.mql("escape list cue user \"" + AbstractTest.convertMql(user.getName()) + "\""),
                             _ignored ? cue.getName() : "",
                             "check that cue exists");
@@ -878,7 +878,7 @@ public abstract class AbstractUserTest<USER extends AbstractUserData<USER>>
         final FilterData<USER> filter = user.newFilter("filter not removed test");
         user.create();
         user.getFilters().clear();
-        user.update(_paramName, "*");
+        user.update((String) null, _paramName, "*");
         Assert.assertEquals(this.mql("escape list filter user \"" + AbstractTest.convertMql(user.getName()) + "\""),
                             _ignored ? filter.getName() : "",
                             "check that filter exists");
@@ -901,7 +901,7 @@ public abstract class AbstractUserTest<USER extends AbstractUserData<USER>>
         final QueryData<USER> query = user.newQuery("query not removed test");
         user.create();
         user.getQueries().clear();
-        user.update(_paramName, "*");
+        user.update((String) null, _paramName, "*");
         Assert.assertEquals(this.mql("escape list query user \"" + AbstractTest.convertMql(user.getName()) + "\""),
                             _ignored ? query.getName() : "",
                             "check that query exists");
@@ -924,7 +924,7 @@ public abstract class AbstractUserTest<USER extends AbstractUserData<USER>>
         final TableData<USER> table = user.newTable("table not removed test");
         user.create();
         user.getTables().clear();
-        user.update(_paramName, "*");
+        user.update((String) null, _paramName, "*");
         Assert.assertEquals(this.mql("escape list table user \"" + AbstractTest.convertMql(user.getName()) + "\""),
                             _ignored ? table.getName() : "",
                             "check that table exists");
@@ -947,7 +947,7 @@ public abstract class AbstractUserTest<USER extends AbstractUserData<USER>>
         final TipData<USER> tip = user.newTip("tip not removed test");
         user.create();
         user.getTips().clear();
-        user.update(_paramName, "*");
+        user.update((String) null, _paramName, "*");
         Assert.assertEquals(this.mql("escape list tip user \"" + AbstractTest.convertMql(user.getName()) + "\""),
                             _ignored ? tip.getName() : "",
                             "check that tip exists");
@@ -970,7 +970,7 @@ public abstract class AbstractUserTest<USER extends AbstractUserData<USER>>
         final ToolSetData<USER> toolSet = user.newToolSet("tool set not removed test");
         user.create();
         user.getToolSets().clear();
-        user.update(_paramName, "*");
+        user.update((String) null, _paramName, "*");
         Assert.assertEquals(this.mql("escape list toolset user \"" + AbstractTest.convertMql(user.getName()) + "\""),
                             _ignored ? toolSet.getName() : "",
                             "check that tool set exists");
@@ -993,7 +993,7 @@ public abstract class AbstractUserTest<USER extends AbstractUserData<USER>>
         final ViewData<USER> view = user.newView("view not removed test");
         user.create();
         user.getViews().clear();
-        user.update(_paramName, "*");
+        user.update((String) null, _paramName, "*");
         Assert.assertEquals(this.mql("escape list view user \"" + AbstractTest.convertMql(user.getName()) + "\""),
                             _ignored ? view.getName() : "",
                             "check that view exists");

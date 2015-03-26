@@ -156,7 +156,7 @@ public class InterfaceTest
 
         final InterfaceData inter = new InterfaceData(this, "TestInterface")
                 .addParent(parent)
-                .update();
+                .update((String) null);
 
         Assert.assertEquals(this.mql("print interface '" + inter.getName() + "' select derived dump"),
                             parent.getName(),
@@ -178,7 +178,7 @@ public class InterfaceTest
         final InterfaceData inter = new InterfaceData(this, "TestInterface")
                 .addParent(parent1)
                 .addParent(parent2);
-        inter.update();
+        inter.update((String) null);
 
         final Set<String> resultParent = new HashSet<String>();
         resultParent.add(parent1.getName());
@@ -224,7 +224,7 @@ public class InterfaceTest
                 .create()
                 .removeTypes()
                 .addType(type)
-                .update();
+                .update((String) null);
 
         Assert.assertEquals(
                 this.mql("print interface '" + inter.getName() + "' select type dump"),
@@ -244,7 +244,7 @@ public class InterfaceTest
         final TypeData type = new TypeData(this, "TestType").create();
         final InterfaceData inter = new InterfaceData(this, "TestInterface")
                 .addType(type)
-                .update();
+                .update((String) null);
 
         Assert.assertEquals(
                 this.mql("print interface '" + inter.getName() + "' select type dump"),
@@ -267,7 +267,7 @@ public class InterfaceTest
         final InterfaceData inter = new InterfaceData(this, "TestInterface")
                 .addType(type1)
                 .addType(type2)
-                .update();
+                .update((String) null);
 
         final Set<String> result = new HashSet<String>();
         result.add(type1.getName());
@@ -292,7 +292,7 @@ public class InterfaceTest
                 .addType(type)
                 .create()
                 .addAllTypes()
-                .update();
+                .update((String) null);
 
         Assert.assertEquals(
                 this.mql("print interface '" + inter.getName() + "' select type dump"),
@@ -317,7 +317,7 @@ public class InterfaceTest
                 .create()
                 .removeRelationships()
                 .addRelationship(rel2)
-                .update();
+                .update((String) null);
 
         Assert.assertEquals(
                 this.mql("print interface '" + inter.getName() + "' select relationship dump"),
@@ -338,7 +338,7 @@ public class InterfaceTest
         final RelationshipData rel = new RelationshipData(this, "TestRel").create();
         final InterfaceData inter = new InterfaceData(this, "TestInterface")
                 .addRelationship(rel)
-                .update();
+                .update((String) null);
 
         Assert.assertEquals(
                 this.mql("print interface '" + inter.getName() + "' select relationship dump"),
@@ -362,7 +362,7 @@ public class InterfaceTest
                 .create()
                 .removeRelationships()
                 .addRelationship(rel)
-                .update();
+                .update((String) null);
 
         Assert.assertEquals(
                 this.mql("print interface '" + inter.getName() + "' select relationship dump"),
@@ -385,7 +385,7 @@ public class InterfaceTest
                 .addRelationship(rel)
                 .create()
                 .addAllRelationships()
-                .update();
+                .update((String) null);
 
         Assert.assertEquals(this.mql("print interface '" + inter.getName() + "' select relationship dump"),
                             "all",
@@ -410,7 +410,7 @@ public class InterfaceTest
                 .create()
                 .removeRelationships()
                 .removeTypes()
-                .update();
+                .update((String) null);
 
         Assert.assertEquals(this.mql("print interface '" + inter.getName() + "' select type dump"),
                             "",
@@ -448,7 +448,7 @@ public class InterfaceTest
                 .addType(type2)
                 .addRelationship(rel1)
                 .addRelationship(rel2)
-                .update();
+                .update((String) null);
 
         final Set<String> resultParent = new HashSet<String>();
         resultParent.add(parent1.getName());

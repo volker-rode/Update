@@ -142,7 +142,7 @@ public class MQLTest
         }
 
         // first update with original content
-        _mqlProgram.update();
+        _mqlProgram.update((String) null);
 
         // the replace code (removing TCL update commands)
         final StringBuilder cmd = new StringBuilder()
@@ -159,11 +159,11 @@ public class MQLTest
                 + "\" execute user creator execute immediate !needsbusinessobject !downloadable !pipe !pooled description test !hidden");
 
         // second update with delivered content
-        _mqlProgram.updateWithCode(exportParser.getOrigCode())
+        _mqlProgram.updateWithCode(exportParser.getOrigCode(), (String) null)
                    .checkExport();
 
         // third update with delivered content (without changing the code)
-        _mqlProgram.updateWithCode(exportParser.getOrigCode())
+        _mqlProgram.updateWithCode(exportParser.getOrigCode(), (String) null)
                    .checkExport();
 
         Assert.assertEquals(
@@ -202,7 +202,7 @@ public class MQLTest
         final MQLProgramData mqlProg = new MQLProgramData(this, "Test")
                 .setCode(code)
                 .addProperty(new PropertyDef("testprop", "propvalue"))
-                .update("ProgramTclUpdateRemoveInCode", "true");
+                .update((String) null, "ProgramTclUpdateRemoveInCode", "true");
         final String progName =  AbstractTest.convertMql(mqlProg.getName());
         Assert.assertEquals(
                 this.mql("escape print prog \"" + progName + "\" select property[testprop].value dump"),
@@ -227,7 +227,7 @@ public class MQLTest
         final MQLProgramData mqlProg = new MQLProgramData(this, "Test")
                 .setCode(code)
                 .addProperty(new PropertyDef("testprop", "propvalue"))
-                .update("ProgramTclUpdateRemoveInCode", "false");
+                .update((String) null, "ProgramTclUpdateRemoveInCode", "false");
         final String progName =  AbstractTest.convertMql(mqlProg.getName());
         Assert.assertEquals(
                 this.mql("escape print prog \"" + progName + "\" select property[testprop].value dump"),
