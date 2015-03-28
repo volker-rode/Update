@@ -514,6 +514,8 @@ public class PolicyData
         public final List<Access> access = new ArrayList<Access>();
         /** Values of this state. */
         private final Map<String,Object> values = new HashMap<String,Object>();
+        /** Defines flags for this state. */
+        private final Flags flags = new Flags();
 
         /**
          * Appends a access filter definition.
@@ -551,6 +553,33 @@ public class PolicyData
         public Map<String,Object> getValues()
         {
             return this.values;
+        }
+
+        /**
+         * Defines the flag and the value.
+         *
+         * @param _key          key (name) of the flag
+         * @param _value        <i>true</i> to activate the flag; otherwise
+         *                      <i>false</i>; to undefine set to <code>null</code>
+         * @return this data instance
+         * @see #flags
+         */
+        @SuppressWarnings("unchecked")
+        public AS setFlag(final String _key,
+                          final Boolean _value)
+        {
+            this.flags.put(_key, _value);
+            return (AS) this;
+        }
+
+        /**
+         * Returns all defined {@link #flags}.
+         *
+         * @return all defined flags
+         */
+        public Flags getFlags()
+        {
+            return this.flags;
         }
     }
 
@@ -611,6 +640,7 @@ public class PolicyData
             for (final Access accessFilter : this.access)  {
                 accessFilter.append4CIFile(_cmd);
             }
+            this.getFlags().append4CIFileValues("      ", _cmd, "\n");
             for (final Map.Entry<String,Object> value : this.getValues().entrySet())  {
                 _cmd.append("      ").append(value.getKey())
                     .append(" \"").append(StringUtil_mxJPO.convertTcl(value.getValue().toString())).append("\"\n");
@@ -637,6 +667,7 @@ public class PolicyData
                 _cmd.append(' ').append(value.getKey())
                     .append(" \"").append(StringUtil_mxJPO.convertMql(value.getValue().toString())).append('\"');
             }
+            this.getFlags().append4CIFileValues(" ", _cmd, " ");
             for (final Signature signature : this.signatures)
             {
                 signature.append4CIFile(_cmd);
@@ -693,6 +724,8 @@ public class PolicyData
                                         ? entry.getValue().toString()
                                         : "\"" + AbstractTest.convertTcl(entry.getValue().toString()) + "\"");
                     }
+
+                    this.getFlags().checkExport(line, "state " + this.name);
                 }
             }
             Assert.assertTrue(found, "check that state '" + this.name + "' is found");
