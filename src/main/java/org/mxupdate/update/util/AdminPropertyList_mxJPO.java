@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2014 The MxUpdate Team
+ * Copyright 2008-2015 The MxUpdate Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -145,7 +145,9 @@ public class AdminPropertyList_mxJPO
      * @param _out          appendable instance to the TCL update file
      * @param _typeDef      type definition
      * @throws IOException if the write to the TCL update file failed
+     * @deprecated old format
      */
+    @Deprecated()
     public void writeAddFormat(final ParameterCache_mxJPO _paramCache,
                                final Appendable _out,
                                final TypeDef_mxJPO _typeDef)
@@ -197,21 +199,12 @@ public class AdminPropertyList_mxJPO
                 }
                 if (!found)  {
                     _mql.newLine()
-                        .append("remove property \"");
-                    if (curProp.getName() != null)  {
-                        _mql.lastLine()
-                            .append(StringUtil_mxJPO.convertMql(curProp.getName()));
-                    }
-                    _mql.lastLine()
-                        .append('\"');
+                        .cmd("remove property ").arg(curProp.getName());
                     if ((curProp.getRefAdminName() != null) && (curProp.getRefAdminType() != null))  {
-                        _mql.lastLine()
-                            .append(" to \"").append(StringUtil_mxJPO.convertMql(curProp.getRefAdminType())).append('\"')
-                            .append(" \"").append(StringUtil_mxJPO.convertMql(curProp.getRefAdminName())).append('\"');
+                        _mql.cmd(" to ").cmd(curProp.getRefAdminType()).cmd(" ").arg(curProp.getRefAdminName());
                         // if target is a table, a system is required!
                         if ("table".equals(curProp.getRefAdminType()))  {
-                            _mql.lastLine()
-                                .append(" system");
+                            _mql.cmd(" system");
                         }
                     }
                 }
@@ -230,26 +223,16 @@ public class AdminPropertyList_mxJPO
             }
             if (!found)  {
                 _mql.newLine()
-                    .append("add property \"");
-                if (tarProp.getName() != null)  {
-                    _mql.lastLine()
-                        .append(StringUtil_mxJPO.convertMql(tarProp.getName()));
-                }
-                _mql.lastLine()
-                    .append('\"');
+                    .cmd("add property ").arg(tarProp.getName());
                 if ((tarProp.getRefAdminName() != null) && (tarProp.getRefAdminType() != null))  {
-                    _mql.lastLine()
-                        .append(" to \"").append(StringUtil_mxJPO.convertMql(tarProp.getRefAdminType())).append('\"')
-                        .append(" \"").append(StringUtil_mxJPO.convertMql(tarProp.getRefAdminName())).append('\"');
+                    _mql.cmd(" to ").cmd(tarProp.getRefAdminType()).cmd(" ").arg(tarProp.getRefAdminName());
                     // if target is a table, a system is required!
                     if ("table".equals(tarProp.getRefAdminType()))  {
-                        _mql.lastLine()
-                            .append(" system");
+                        _mql.cmd(" system");
                     }
                 }
                 if (tarProp.getValue() != null)  {
-                    _mql.lastLine()
-                        .append(" value \"").append(StringUtil_mxJPO.convertMql(tarProp.getValue())).append('\"');
+                    _mql.cmd(" value ").arg(tarProp.getValue());
                 }
             }
         }

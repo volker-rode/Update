@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2014 The MxUpdate Team
+ * Copyright 2008-2015 The MxUpdate Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -140,7 +140,9 @@ public final class StringUtil_mxJPO
      *
      * @param _text     character stream to convert
      * @return converted string
+     * @deprecated use {@link MqlBuilder_mxJPO}
      */
+    @Deprecated()
     public static String convertMql(final CharSequence _text)
     {
         return (_text != null)

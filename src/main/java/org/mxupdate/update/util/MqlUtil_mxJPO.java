@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2014 The MxUpdate Team
+ * Copyright 2008-2015 The MxUpdate Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,9 @@ public final class MqlUtil_mxJPO
      * @param _cmd          MQL command to execute
      * @return trimmed result of the MQL execution
      * @throws MatrixException if MQL execution failed
+     * @deprecated replaced by {@link MqlBuilder_mxJPO}
      */
+    @Deprecated()
     public static String execMql(final ParameterCache_mxJPO _paramCache,
                                  final CharSequence _cmd)
             throws MatrixException
@@ -60,11 +62,14 @@ public final class MqlUtil_mxJPO
      * @param _cmd                  MQL command to execute
      * @param _includeMQLCommand    must be MQL command included in the
      *                              exception?
+     * @param _args                 arguments
      * @return trimmed result of the MQL execution
      * @throws MatrixException if MQL execution failed; includes the MQL
      *                         command if <code>_includeMQLCommand</code> is
      *                         set to <i>true</i>
+     * @deprecated replaced by {@link MqlBuilder_mxJPO}
      */
+    @Deprecated()
     public static String execMql(final Context _context,
                                  final CharSequence _cmd,
                                  final boolean _includeMQLCommand)
@@ -88,7 +93,7 @@ public final class MqlUtil_mxJPO
     public static void setHistoryOn(final ParameterCache_mxJPO _paramCache)
             throws MatrixException
     {
-        MqlUtil_mxJPO.execMql(_paramCache, "history on");
+        MqlUtil_mxJPO.execMql(_paramCache, "escape history on");
     }
 
     /**
@@ -100,6 +105,6 @@ public final class MqlUtil_mxJPO
     public static void setHistoryOff(final ParameterCache_mxJPO _paramCache)
             throws MatrixException
     {
-        MqlUtil_mxJPO.execMql(_paramCache, "history off");
+        MqlUtil_mxJPO.execMql(_paramCache, "escape history off");
     }
 }
