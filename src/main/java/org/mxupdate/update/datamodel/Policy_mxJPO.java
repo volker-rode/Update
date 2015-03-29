@@ -311,6 +311,7 @@ public class Policy_mxJPO
             _out.append(" ").append(suffix);
         }
         _out.append("\n  description \"").append(StringUtil_mxJPO.convertTcl(this.getDescription())).append("\"");
+
         // types
         if (this.allTypes)  {
             _out.append("\n  type all");
@@ -319,6 +320,7 @@ public class Policy_mxJPO
                 .append(StringUtil_mxJPO.joinTcl(' ', true, this.types, null))
                 .append("}");
         }
+
         // formats and locking enforced
         if (this.allFormats)  {
             _out.append("\n  format all");
@@ -343,19 +345,24 @@ public class Policy_mxJPO
 
         _out.append("\n  store \"").append(StringUtil_mxJPO.convertTcl(this.store)).append('\"')
             .append("\n  hidden \"").append(Boolean.toString(this.isHidden())).append("\"");
+
         // all state access
         if (this.allState)  {
             _out.append("\n  allstate {");
             this.allStateAccess.writeObject(_paramCache, _out);
             _out.append("\n  }");
         }
+
         // all states
         for (final State state : this.states)  {
             state.writeObject(_paramCache, _out);
         }
-        _out.append("\n}");
 
-        this.getProperties().writeAddFormat(_paramCache, _out, this.getTypeDef());
+        // append properties
+        _out.append("\n");
+        this.getProperties().writeUpdateFormat(_paramCache, _out, "  ");
+
+        _out.append("}");
     }
 
     /**
@@ -537,6 +544,9 @@ public class Policy_mxJPO
 
             this.calcAllStateAccess(_paramCache, mql, policy);
             this.calcStatesDelta(_paramCache, mql, policy);
+
+            // properties
+            policy.getProperties().calcDelta("", this.getProperties(), mql);
 
             mql.exec(_paramCache);
         }
