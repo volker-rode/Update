@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2014 The MxUpdate Team
+ * Copyright 2008-2015 The MxUpdate Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -733,6 +733,9 @@ public class ParameterCache_mxJPO
         }
     }
 
+    /**
+     * Value keys.
+     */
     public enum ValueKeys
     {
         /**
@@ -784,6 +787,23 @@ public class ParameterCache_mxJPO
          * The parameter is needed to support the case that a new MX version
          * is used (where the view program is not working anymore).
          */
-        DMFormatSupportsPrograms;
+        DMFormatSupportsPrograms,
+        /**
+         * Name of the parameter to define that the &quot;majorrevision&quot;
+         * property for policies and &quot;delimited&quot; property for policy
+         * states from current MX version is supported. The parameter is needed
+         * to support the case that an old MX version is used....
+         */
+        DMPolicySupportsMajorMinor,
+        /**
+         * Name of the parameter to define that the policy states supports the
+         * published property.
+         */
+        DMPolicyStateSupportsPublished,
+        /**
+         * Name of parameter to check that the policy states supports the
+         * published property.
+         */
+        DMPolicyStateSupportsEnforceReserveAccess;
     }
 }
