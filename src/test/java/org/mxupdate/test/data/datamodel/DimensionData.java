@@ -1,3 +1,20 @@
+/*
+ * Copyright 2008-2015 The MxUpdate Team
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
 package org.mxupdate.test.data.datamodel;
 
 import java.util.ArrayList;
@@ -66,12 +83,10 @@ public class DimensionData
             unit.append4CIFile(strg);
         }
 
-        strg.append("}");
-
         // append properties
-        for (final PropertyDef prop : this.getProperties())  {
-            strg.append('\n').append(prop.getCITCLString(this.getCI()));
-        }
+        this.getProperties().appendCIFileUpdateFormat("  ", strg);
+
+        strg.append("}");
 
         return strg.toString();
     }
@@ -132,8 +147,6 @@ public class DimensionData
     public void checkExport(final ExportParser _exportParser)
         throws MatrixException
     {
-        this.getProperties().checkExportPropertiesAddFormat(_exportParser, this.getCI());
-
         // check symbolic name
         Assert.assertEquals(
                 _exportParser.getSymbolicName(),
@@ -163,11 +176,14 @@ public class DimensionData
                                   "\"true\"");
         }
 
-        // check all states
+        // check all units
         for (final UnitData unit : this.units)
         {
             unit.checkExport(_exportParser);
         }
+
+        // check for properties
+        this.getProperties().checkExportPropertiesUpdateFormat(_exportParser.getLines("/updateDimension/property/@value"));
     }
 
     /**
@@ -382,6 +398,7 @@ public class DimensionData
                 }
             }
             Assert.assertTrue(found, "check that state '" + this.name + "' is found");
+
             // check properties
             this.properties.checkExportPropertiesUpdateFormat(propLines);
         }

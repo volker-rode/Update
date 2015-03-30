@@ -33,6 +33,7 @@ import matrix.util.MatrixException;
 import org.mxupdate.mapping.PropertyDef_mxJPO;
 import org.mxupdate.mapping.TypeDef_mxJPO;
 import org.mxupdate.update.datamodel.AbstractAttribute_mxJPO;
+import org.mxupdate.update.datamodel.Dimension_mxJPO;
 import org.mxupdate.update.datamodel.Format_mxJPO;
 import org.mxupdate.update.datamodel.Policy_mxJPO;
 import org.mxupdate.update.util.AdminPropertyList_mxJPO;
@@ -552,6 +553,7 @@ public abstract class AbstractAdminObject_mxJPO
         // (only if not attribute, because attributes and formats uses calulated deltas)
         if (!(this instanceof AbstractAttribute_mxJPO)
                 && !(this instanceof Format_mxJPO)
+                && !(this instanceof Dimension_mxJPO)
                 && !(this instanceof Policy_mxJPO))  {
 
             for (final AdminProperty prop : this.properties)  {
