@@ -38,6 +38,6 @@ public class AttributeReal_mxJPO
     public AttributeReal_mxJPO(final TypeDef_mxJPO _typeDef,
                                final String _mxName)
     {
-        super(_typeDef, _mxName, "real", "real,");
+        super(_typeDef, _mxName, "real", "real");
     }
 }
