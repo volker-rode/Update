@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2014 The MxUpdate Team
+ * Copyright 2008-2015 The MxUpdate Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import org.testng.annotations.Test;
  */
 @Test()
 public class AttributeStringTest
-    extends AbstractAttributeTest<AttributeStringData>
+    extends AbstractAttributeWithRangesAndMultiValuesTest<AttributeStringData>
 {
     /**
      * Creates for given <code>_name</code> a new string attribute instance.

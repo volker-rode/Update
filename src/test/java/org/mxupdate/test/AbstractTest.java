@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2014 The MxUpdate Team
+ * Copyright 2008-2015 The MxUpdate Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -81,6 +81,8 @@ public abstract class AbstractTest
      */
     public enum CI
     {
+        /** Configuration item Data Model Binrary Attribute. */
+        DM_ATTRIBUTE_BINARY("attribute", null, false, null, null, "AttributeBinary", "ATTRIBUTE", "BINARY_", "datamodel/attribute", true, "updateAttribute"),
         /** Configuration item Data Model Boolean Attribute. */
         DM_ATTRIBUTE_BOOLEAN("attribute", null, false, null, null, "AttributeBoolean", "ATTRIBUTE", "BOOLEAN_", "datamodel/attribute", true, "updateAttribute"),
         /** Configuration item Data Model Date Attribute. */
